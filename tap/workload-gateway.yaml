@@ -12,9 +12,9 @@ metadata:
 spec:
   source:
     git:
-      url: https://github.com/tsalm-pivotal/spring-cloud-demo-tap.git
+      url: https://github.com/haewons-tanzu/spring-cloud-tap-demo.git
       ref:
-        branch: main
+        branch: master
     subPath: gateway
   serviceClaims:
   - name: config-server
