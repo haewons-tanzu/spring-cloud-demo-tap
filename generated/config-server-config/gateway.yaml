@@ -1,0 +1,30 @@
+spring.cloud.gateway:
+  routes:
+  - id: product-service-route
+    uri: http://product-service.dev-team-01
+    predicates:
+    - Path=/services/product-service/**
+    filters:
+    - StripPrefix=2
+    - TokenRelay=
+  - id: order-service-route
+    uri: http://order-service.dev-team-01
+    predicates:
+    - Path=/services/order-service/**
+    filters:
+    - StripPrefix=2
+    - TokenRelay=
+  - id: frontend-route
+    uri: http://frontend.dev-team-01
+    predicates:
+    - Path=/frontend/**
+    filters:
+    - StripPrefix=1
+  globalcors.corsConfigurations:
+    '[/**]':
+      allowedOrigins:
+      - '*'
+      allowedMethods:
+      - '*'
+      allowedHeaders:
+      - '*'
